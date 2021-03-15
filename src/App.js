@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   handleDeleteOrder = (orderId) => {
-    axios.delete(`/api/order/${orderId}`)
+    axios.put('/api/order', { orderId })
       .then(res => {
         console.log(res.data)
         this.handleGetCart()
@@ -79,14 +79,17 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <main className="App">
         <Header />
         <input placeholder="Enter Name" value={this.state.nameInput} onChange={(e) => this.handleChange(e)} />
         <Flavors flavors={this.state.flavors} handleAddToCart={this.handleAddToCart} />
 
         <Cart cart={this.state.cart} handleUpdateOrder={this.handleUpdateOrder} handleDeleteOrder={this.handleDeleteOrder} />
         <button onClick={() => this.handleClear()}> Clear </button>
-      </div>
+
+
+        <footer> copyright</footer>
+      </main>
     );
   }
 }

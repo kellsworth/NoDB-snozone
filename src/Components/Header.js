@@ -1,8 +1,8 @@
 const Header = (props) => {
   return (
-    <div>
+    <header>
       <h1>Sno Zone</h1>
-    </div>
+    </header>
   )
 }
 export default Header;

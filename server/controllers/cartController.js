@@ -17,7 +17,7 @@ module.exports = {
   },
 
   deleteFromCartArr: (req, res) => {
-    const { orderId } = req.params;
+    const { orderId } = req.body;
     cartArr = cartArr.filter((order) => order.id !== +orderId)
     res.sendStatus(200)
   },
