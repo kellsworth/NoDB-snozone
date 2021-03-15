@@ -13,18 +13,30 @@ module.exports = {
     order.id = orderNum;
     orderNum++;
     cartArr.push(order)
+    res.sendStatus(201)
   },
 
   deleteFromCartArr: (req, res) => {
-
+    const { orderId } = req.params;
+    cartArr = cartArr.filter((order) => order.id !== +orderId)
+    res.sendStatus(200)
   },
 
-  editOrder: (req, res) => {
-
+  updateOrder: (req, res) => {
+    const { orderId } = req.params;
+    const { name } = req.body;
+    cartArr.forEach((order, index) => {
+      if (+orderId === order.id) {
+        cartArr[index].nameInput = name;
+      }
+    })
+    res.sendStatus(200)
   },
 
   clearCart: (req, res) => {
-
+    cartArr = []
+    res.sendStatus(200)
   }
+
 }
 
