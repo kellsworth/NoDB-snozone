@@ -4,6 +4,10 @@ import Header from './Components/Header';
 import Flavors from './Components/Flavors';
 import Cart from './Components/Cart';
 import axios from 'axios';
+import cherry from './assets/images/Cherry.png';
+import lime from './assets/images/Lime.png';
+import orange from './assets/images/Orange.png';
+
 
 class App extends Component {
   constructor() {
@@ -79,17 +83,30 @@ class App extends Component {
   render() {
 
     return (
-      <main className="App">
+      <>
         <Header />
-        <input placeholder="Enter Name" value={this.state.nameInput} onChange={(e) => this.handleChange(e)} />
-        <Flavors flavors={this.state.flavors} handleAddToCart={this.handleAddToCart} />
+        <main className="App">
+          <section className="image-container">
+            <img src={cherry} />
+            <img src={lime} />
+            <img src={orange} />
+          </section>
+          <section className="order-container">
+            <div className="flavor-container">
+              <input placeholder="Enter Name" value={this.state.nameInput} onChange={(e) => this.handleChange(e)} />
 
-        <Cart cart={this.state.cart} handleUpdateOrder={this.handleUpdateOrder} handleDeleteOrder={this.handleDeleteOrder} />
-        <button onClick={() => this.handleClear()}> Clear </button>
+              <Flavors flavors={this.state.flavors} handleAddToCart={this.handleAddToCart} />
+            </div>
+            <div className="cart-container">
+              <Cart cart={this.state.cart} handleUpdateOrder={this.handleUpdateOrder} handleDeleteOrder={this.handleDeleteOrder} />
 
+              <button onClick={() => this.handleClear()}> Clear </button>
+            </div>
+          </section>
 
+        </main>
         <footer> copyright</footer>
-      </main>
+      </>
     );
   }
 }

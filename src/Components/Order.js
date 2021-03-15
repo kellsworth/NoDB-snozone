@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import Flavor from "./Flavor";
+import './Order.css';
+
 
 class Order extends Component {
   constructor(props) {
@@ -22,12 +23,14 @@ class Order extends Component {
   render() {
     const { order, handleDeleteOrder } = this.props
     return (
-      <section>
+      <section className="cart-item-container">
         <h4> {order.nameInput} </h4>
         <h5> {order.flavor} </h5>
-        <input placeholder="Change Name" value={this.state.nameInput} onChange={(e) => this.handleChange(e)} />
-        <button onClick={() => this.handleUpdate(order)}> Update </button>
-        <button onClick={() => handleDeleteOrder(order.id)}> Delete </button>
+        <div className="order-input-container">
+          <input placeholder="Change Name" value={this.state.nameInput} onChange={(e) => this.handleChange(e)} />
+          <button onClick={() => this.handleUpdate(order)}> Update </button>
+          <button onClick={() => handleDeleteOrder(order.id)}> Delete </button>
+        </div>
       </section>
     )
   }
