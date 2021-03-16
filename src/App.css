@@ -83,6 +83,7 @@ img {
 
 button:hover {
   color:rgb(235, 8, 166);
+  background-color: chartreuse;
 }
 
 footer {
